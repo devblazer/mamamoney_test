@@ -17,6 +17,7 @@ const processResponse = data=>{
 	};
 };
 
+// uses the api class to make api calls and decide when such calls need to be made, passing a subset of the results to the App
 const ApiWrapper = ({App})=>{
 	const [retry, setRetry] = useState(0);
 

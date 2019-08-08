@@ -9,10 +9,15 @@ const temperatureUnitOptions = new Map([
 	['f', {dataKey: 'f', symbol: '°F', title: 'Fahrenheit'}]
 ]);
 
-const weatherApiSecret = '29e4a4ce0ec0068b03fe203fa81d457f';
+const weatherApiSecret = 'd6f537ef7a948cad74b97e83b8353e60';
+
+const notNiceTempMin = 59;
+const notNiceTempMax = 77;
 
 export {
 	defaultTemperatureUnit,
 	temperatureUnitOptions,
-	weatherApiSecret
+	weatherApiSecret,
+	notNiceTempMin,
+	notNiceTempMax
 }

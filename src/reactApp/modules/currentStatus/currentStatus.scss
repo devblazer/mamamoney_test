@@ -7,7 +7,17 @@
     color: #666;
   }
 
-  :local(.temperature):before {
-    content: ' ';
+  :local(.temperature) {
+    color: #47c;
+
+    &:before {
+      content: ' ';
+    }
+  }
+
+  :local(.warning) {
+    font-size: 12px;
+    color: #f33;
+    margin-left: 15px;
   }
 }

@@ -4,6 +4,10 @@ body {
   font-family: Verdana;
 }
 
+a {
+  text-decoration: none;
+}
+
 :local(.app) {
   > header {
     overflow: hidden;

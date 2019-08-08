@@ -19,16 +19,19 @@ const App = ({apiData, onUpdateClicked, retry, locationName})=>{
 	const [temperatureUnit, setTemperatureUnit] = useState(defaultTemperatureUnit);
 	const temperatureUnitOption = temperatureUnitOptions.get(temperatureUnit);
 
+	// pre-process and remember app data whenever temperature unit or api data changes
 	const data = useMemo(()=>{
 		if (!apiData)
 			return null;
 
 		let currentTemp = convertTemp(apiData.currentTemp, temperatureUnitOption);
+
 		return {
 			currentTemp,
+			origTemp: apiData.currentTemp,
 			currentTempString: formatTemperature(currentTemp, temperatureUnitOption),
 
-			forecast: apiData.forecast.map(row=>{
+			forecast: apiData.forecast.slice(1).map(row=>{
 				let temperature = convertTemp(row.temperature, temperatureUnitOption);
 				return {
 					...row,
@@ -49,7 +52,7 @@ const App = ({apiData, onUpdateClicked, retry, locationName})=>{
 						<span className={styles.retryError}>Api call failed, retrying in {retry} seconds...</span>
 					) : null}
 				</header>
-				<CurrentStatus locationName={locationName} temperature={data.currentTempString} />
+				<CurrentStatus locationName={locationName} temperature={data.currentTempString} origTemp={data.origTemp} />
 				<Forecast data={data.forecast} />
 			</main>
 		) : (
