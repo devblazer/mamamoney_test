@@ -1,21 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 
 const baseDir = path.join(__dirname, '..');
 
 const config = {
 	entry: path.join(baseDir, 'src', 'entry.js'),
 	output: {
-		path: path.join(baseDir, 'dist'),
+		path: path.join(baseDir, 'docs'),
 		filename: '[name].[chunkhash:16].bundle.js'
 	},
-	mode: "development",
-	devServer: {
-		contentBase: './dist',
-		inline: true,
-		port: 3000
-	},
+	mode: "production",
 	module: {
 		rules: [
 			{
@@ -52,13 +49,13 @@ const config = {
 							modules: true,
 							localIdentName: '[local]--[hash:base64:5]',
 							camelCase: true,
-							sourceMap: true
+							sourceMap: false
 						}
 					},
 					{
 						loader: 'sass-loader',
 						options: {
-							sourceMap: true
+							sourceMap: false
 						}
 					}
 				]
@@ -72,12 +69,12 @@ const config = {
 		}),
 		new ScriptExtHtmlWebpackPlugin({
 			defaultAttribute: 'defer'
-		})
+		}),
+		new BundleAnalyzerPlugin()
 	],
 	stats: {
 		colors: true
-	},
-	devtool: 'source-map'
+	}
 };
 
 module.exports = config;
