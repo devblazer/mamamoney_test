@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import styles from './forecast.scss';
 import Moment from 'moment';
 
-function Forecast({data, temperatureUnit, timeFormatString}) {
+const Forecast = ({data, temperatureUnit, timeFormatString})=>{
 	return <section className={styles.forecast}>
-		<header>Forecast</header>
+		<header>Forecast:</header>
 		<dl>
 			{data.map(row=>{
 				return <React.Fragment key={row.date.format('D_H')}>
@@ -20,7 +20,7 @@ function Forecast({data, temperatureUnit, timeFormatString}) {
 			})}
 		</dl>
 	</section>
-}
+};
 
 Forecast.defaultProps = {
 	timeFormatString: 'D MMM, ha',

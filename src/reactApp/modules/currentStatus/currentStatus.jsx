@@ -3,19 +3,19 @@ import PropTypes from 'prop-types'
 
 import styles from './currentStatus.scss';
 
-function CurrentStatus({cityName, temperature}) {
+const CurrentStatus = ({locationName, temperature})=>{
 	return <section className={styles.currentStatus}>
-		<header>{cityName}</header>
+		<header>{locationName}</header>
 		<div>
 			<span className={styles.currentTempLabel}>Current temperature</span>:
-			<span className={styles.temperatureNumber}>{temperature}</span>
+			<span className={styles.temperature}>{temperature}</span>
 		</div>
 	</section>
-}
+};
 
 CurrentStatus.propTypes = {
-	cityName: PropTypes.string.isRequired,
-	temperature: PropTypes.number.isRequired
+	locationName: PropTypes.string.isRequired,
+	temperature: PropTypes.string.isRequired
 };
 
 export default CurrentStatus;

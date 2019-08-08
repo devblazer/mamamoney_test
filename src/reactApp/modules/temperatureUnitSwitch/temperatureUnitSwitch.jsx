@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './temperatureUnitSwitch.scss';
 
-function TemperatureUnitSwitch({currentUnit, options, onChange}) {
+const TemperatureUnitSwitch = ({currentUnit, options, onChange})=>{
 	const unitClickHandler = useCallback(e=>{
 		let dataKey = e.target.dataset.key;
 		if (dataKey != currentUnit)
@@ -14,7 +14,7 @@ function TemperatureUnitSwitch({currentUnit, options, onChange}) {
 	return <ul className={styles.temperatureUnitSwitch}>
 		{[...options.values()].map(option=>{
 			let dataKey = option.dataKey;
-			return <li key={dataKey}>
+			return <li key={dataKey} className={dataKey==currentUnit ? styles.selected : ''}>
 				<a data-key={dataKey} onClick={unitClickHandler}>
 					{option.title}
 				</a>
@@ -22,7 +22,7 @@ function TemperatureUnitSwitch({currentUnit, options, onChange}) {
 		})}
 	</ul>
 }
-
+;
 TemperatureUnitSwitch.propTypes = {
 	currentUnit: PropTypes.string.isRequired,
 	options: PropTypes.instanceOf(Map).isRequired,

@@ -1,0 +1,13 @@
+:local(.currentStatus) {
+  margin-bottom: 15px;
+
+  > header {
+    font-size: 16px;
+    font-weight: 700;
+    color: #666;
+  }
+
+  :local(.temperature):before {
+    content: ' ';
+  }
+}

@@ -1,0 +1,46 @@
+:local(.temperatureUnitSwitch) {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: block;
+  color: #444;
+  float: left;
+
+  > li {
+    float: left;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    > a {
+      border: #bbb 1px solid;
+      line-height: 1.7em;
+      cursor: pointer;
+      display: block;
+      padding: 0 5px;
+
+      &:hover {
+        background-color: #eee;
+      }
+    }
+
+    & ~ li > a {
+      border-left: 0 none;
+    }
+
+    &.selected > a {
+      background-color: #ccc;
+    }
+
+    &:first-child > a {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    &:last-child > a {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}

@@ -1,5 +1,34 @@
-$testit: 34;
+body {
+  font-size: 14px;
+  color: #333;
+  font-family: Verdana;
+}
 
 :local(.app) {
-  color: red;
+  > header {
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+
+  :local(.updateBtn) {
+    border: #bbb 1px solid;
+    line-height: 1.7em;
+    float: left;
+    cursor: pointer;
+    display: block;
+    padding: 0 5px;
+    margin-left: 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #eee;
+    }
+  }
+
+  :local(.retryError) {
+    font-size: 12px;
+    color: #f00;
+    float: left;
+    margin: 5px 0 0 10px;
+  }
 }

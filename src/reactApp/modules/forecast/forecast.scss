@@ -1,0 +1,27 @@
+:local(.forecast) {
+  > header {
+    color: #666;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  > dl {
+    font-size: 12px;
+    line-height: 1.5em;
+    color: #444;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+
+    > dt {
+      float: left;
+      padding: 0;
+      margin: 0;
+    }
+
+    > dd {
+      padding: 0;
+      margin: 0 0 0 100px;
+    }
+  }
+}
