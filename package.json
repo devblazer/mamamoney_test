@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server --open --config ./webpackConfigs/config.dev.js --mode development",
     "demo": "webpack --config ./webpackConfigs/config.demo.js --mode production"
   },
-  "repository": "https://github.com/devblazer/mamamoneyTest",
+  "repository": "https://github.com/devblazer/mamamoney_test",
   "author": "Ashley Roux",
   "license": "ISC",
   "keywords": [
